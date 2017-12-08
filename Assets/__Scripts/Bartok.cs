@@ -30,7 +30,7 @@ public class Bartok : MonoBehaviour
     public List<CardBartok> drawPile;
     public List<CardBartok> discardPile;
 
-    //public BartokLayout layout;
+    public BartokLayout layout;
     public Transform layoutAnchor;
 
     //public List<Player> players;
@@ -58,8 +58,8 @@ public class Bartok : MonoBehaviour
         deck.InitDeck(deckXML.text);
         Deck.Shuffle(ref deck.cards);
 
-        //layout = GetComponent<BartokLayout>();
-        //layout.ReadLayout(layoutXML.text);
+        layout = GetComponent<BartokLayout>();
+        layout.ReadLayout(layoutXML.text);
 
         drawPile = UpgradeCardsList(deck.cards);
         LayoutGame();
