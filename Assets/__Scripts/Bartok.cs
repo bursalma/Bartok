@@ -163,7 +163,7 @@ public class Bartok : MonoBehaviour
         }
         CURRENT_PLAYER = players[num];
         phase = TurnPhase.pre;
-        //CURRENT_PLAYER.TakeTurn();
+        CURRENT_PLAYER.TakeTurn();
         Vector3 lPos = CURRENT_PLAYER.handSlotDef.pos + Vector3.back * 5;
         turnLight.transform.position = lPos;
         Utils.tr(Utils.RoundToPlaces(Time.time), "Bartok.PassTurn()", "Old: " + lastPlayerNum, "New: " + CURRENT_PLAYER.playerNum);
@@ -217,7 +217,7 @@ public class Bartok : MonoBehaviour
         tCB.state = CBState.toTarget;
         tCB.faceUp = true;
         tCB.SetSortingLayerName("10");
-        //tCB.eventualSortLayer = layout.target.layerName;
+        tCB.eventualSortLayer = layout.target.layerName;
         if (targetCard != null)
         {
             MoveToDiscard(targetCard);
@@ -264,7 +264,7 @@ public class Bartok : MonoBehaviour
         {
             case CBState.drawpile:
                 CardBartok cb = CURRENT_PLAYER.AddCard(Draw());
-                //cb.callbackPlayer = CURRENT_PLAYER;
+                cb.callbackPlayer = CURRENT_PLAYER;
                 Utils.tr(Utils.RoundToPlaces(Time.time), "Bartok.CardClicked()", "Draw", cb.name);
                 phase = TurnPhase.waiting;
                 break;
@@ -273,7 +273,7 @@ public class Bartok : MonoBehaviour
                 {
                     CURRENT_PLAYER.RemoveCard(tCB);
                     MoveToTarget(tCB);
-                    //tCB.callbackPlayer = CURRENT_PLAYER;
+                    tCB.callbackPlayer = CURRENT_PLAYER;
                     Utils.tr(Utils.RoundToPlaces(Time.time), "Bartok.CardClicked()", "Play", tCB.name, targetCard.name + " is target");
                     phase = TurnPhase.waiting;
                 }
