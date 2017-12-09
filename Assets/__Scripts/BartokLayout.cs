@@ -65,18 +65,7 @@ public class BartokLayout : MonoBehaviour
 
             switch (tSD.type)
             {
-                case "slot":
-                    /*tSD.faceUp = (slotsX[i].att("faceup") == "1");
-                    tSD.id = int.Parse(slotsX[i].att("id"));
-                    if (slotsX[i].HasAtt("hiddenby"))
-                    {
-                        string[] hiding = slotsX[i].att("hiddenby").Split(',');
-                        foreach (string s in hiding)
-                        {
-                            tSD.hiddenBy.Add(int.Parse(s));
-                        }
-                    }
-                    slotDefs.Add(tSD);*/
+                case "slot":                  
                     break;
 
                 case "drawpile":

@@ -49,8 +49,8 @@ public class Bartok : MonoBehaviour
         turnLight = GameObject.Find("TurnLight");
         GTGameOver = GameObject.Find("GTGameOver");
         GTRoundResult = GameObject.Find("GTRoundResult");
-        //GTGameOver.SetActive(false);
-        //GTRoundResult.SetActive(false);
+        GTGameOver.SetActive(false);
+        GTRoundResult.SetActive(false);
     }
     void Start()
     {
